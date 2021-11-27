@@ -45,7 +45,10 @@ const Timer = ({timeLeft, setTimeLeft, isPaused, setIsPaused}) => {
         <Button onClick={() => {
           setTimeLeft(0)
           setIsPaused(true);
-        }}> Reset </Button>
+        }}
+        >
+          Reset
+        </Button>
       </div>
     </>
   )
