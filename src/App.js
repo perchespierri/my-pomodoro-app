@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const Title = styled.div`
 text-align: center;
 font-size: 50px;
-padding: 50px 0px;
+padding: 20px 0px;
 background: pink;
 color: whitesmoke;
 text-shadow: 3px 3px grey;
@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Title>Timer App</Title>
-      <Form setTimeLeft={setTimeLeft} />
+      <Form setTimeLeft={setTimeLeft} setIsPaused={setIsPaused} />
       {timeLeft < 0 ? 
         <Finished
           setTimeLeft={setTimeLeft}
