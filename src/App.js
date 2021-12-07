@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import Form from "./components/Form";
-import Timer from "./components/Timer";
-import Finished from "./components/Finished";
+import Form from "./components/countdown/Form";
+import Timer from "./components/countdown/Timer";
+import Finished from "./components/countdown/Finished";
+import {Form as FormTo} from "./components/countTo/FormCountTo";
+import {Timer as TimerTo} from "./components/countTo/TimerCountTo";
+import {Finished as FinishedTo} from "./components/countTo/FinishedCountTo";
 import styled from 'styled-components';
 
 const Title = styled.div`
@@ -17,6 +20,8 @@ margin-bottom: 20px;
 function App() {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isPaused, setIsPaused] = useState(true);
+  const [timeLeftTo, setTimeLeftTo] = useState(0);
+  const [isPausedTo, setIsPausedTo] = useState(true);
 
   return (
     <>
@@ -32,6 +37,22 @@ function App() {
           setTimeLeft={setTimeLeft}
           isPaused={isPaused}
           setIsPaused={setIsPaused}
+        />
+      }
+      <br />
+      <h2 align='center'>OR ...</h2>
+      <br />
+      <FormTo setTimeLeft={setTimeLeftTo} setIsPaused={setIsPausedTo} />
+      {timeLeftTo < 0 ? 
+        <FinishedTo
+          setTimeLeft={setTimeLeftTo}
+          setIsPaused={setIsPausedTo}
+        /> : 
+        <TimerTo
+          timeLeft={timeLeftTo}
+          setTimeLeft={setTimeLeftTo}
+          isPaused={isPausedTo}
+          setIsPaused={setIsPausedTo}
         />
       }
     </>

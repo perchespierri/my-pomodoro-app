@@ -24,10 +24,10 @@ const Text = styled.div`
 const Form = ({setTimeLeft, setIsPaused}) => {
   const { register, handleSubmit, formState: {errors} } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data.timerInput);
+  const onSubmit = ({timerInput}) => {
+    console.log(timerInput);
     $("#pomodoro-form").trigger("reset");
-    setTimeLeft(data.timerInput*60);
+    setTimeLeft(timerInput*60);
     setIsPaused(false);
   };
 

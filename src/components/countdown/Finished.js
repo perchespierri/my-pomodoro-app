@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Confetti from 'react-confetti';
 import useSound from 'use-sound';
-import DADAA from '../finished-sound/DADAA.mp3';
+import DADAA from '../../finished-sound/DADAA.mp3';
 import styled from 'styled-components'
 
 const Text = styled.h1`
@@ -10,6 +10,7 @@ const Text = styled.h1`
 
 const Button = styled.button`
   font-size: 20px;
+  margin: 2;
 `;
 
 const Finished = ({setTimeLeft, setIsPaused}) => {
