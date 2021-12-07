@@ -18,9 +18,10 @@ const Button = styled.button`
 
 export const Timer = ({timeLeft, setTimeLeft, isPaused, setIsPaused}) => {
   // timeLeft is in seconds
-  let hours = Math.floor(timeLeft/3600);
-  let minutes = Math.floor((timeLeft - hours*3600)/60);
-  let seconds = Math.floor(timeLeft - hours * 3600 - 60 * minutes);
+  let days = Math.floor(timeLeft/3600/24);
+  let hours = Math.floor(timeLeft/3600 - days*24);
+  let minutes = Math.floor((timeLeft - hours*3600 - days*24*3600)/60);
+  let seconds = Math.floor(timeLeft - hours * 3600 - 60 * minutes - days*24*3600);
 
   let intervalRef = useRef();
 
@@ -38,6 +39,8 @@ export const Timer = ({timeLeft, setTimeLeft, isPaused, setIsPaused}) => {
   return (
     <>
       <Container>
+      <Block param="Days" number={days} />
+          <Text>:</Text>
         <Block param="Hours" number={hours} />
           <Text>:</Text>
         <Block param="Minutes" number={minutes} />
